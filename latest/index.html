@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Культура безопасности</title>
+    <style>
+      body { margin: 0; height: 100dvh; display: grid; place-items: center;
+             background: #1b3f73; color: #fff;
+             font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    </style>
+    <script>
+      var bust = Date.now() + "-" + Math.random().toString(36).slice(2);
+      fetch("../version.json?t=" + bust, { cache: "no-store" })
+        .then(function (r) { return r.json(); })
+        .then(function (m) { location.replace("../v/" + m.version + "/?t=" + bust); })
+        .catch(function () { location.replace("../?t=" + bust); });
+    </script>
+  </head>
+  <body>Загружаем актуальную версию…</body>
+</html>
